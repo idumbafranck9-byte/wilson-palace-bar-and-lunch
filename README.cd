@@ -1,0 +1,25 @@
+# Wilson Palace — Bar, Restaurant, Live Football Lounge & Accessories
+
+A complete, responsive, multi-page website built in English for **Wilson Palace Bar & Restaurant**, showcasing its signature charcoal-grilled food menu, ice-cold drinks & **Wilson 100% Naturel Maracuja** juice, live football screening arena, and branded lifestyle accessories[cite: 1, 2, 4].
+
+## Project Structure
+
+```text
+wilson-palace/
+├── Index.html          # Main landing page: video hero, 3 venue pillars, Wilson Maracuja spotlight & full official menu[cite: 1, 2, 4]
+├── about.html          # Brand heritage, culinary philosophy, and the four pillars of Wilson Palace
+├── experience.html     # Dedicated showcase for the 3 venue videos (Bar & Restaurant, Football Zone, Drinks Lounge)
+├── gallery.html        # Filterable media gallery (Drinks, Food & Menu, and all 3 Venue Videos)
+├── accessories.html    # Official Wilson Palace merchandise, headwear, barware, and Maracuja crates
+├── contact me.html     # Interactive VIP table reservation, takeaway order, and accessory inquiry page
+├── styles.css          # Complete luxury dark-and-gold responsive stylesheet[cite: 4, 5]
+├── README.cd           # Project documentation[cite: 3, 4]
+├── README.md           # Project documentation
+└── assets/
+    ├── images/
+    │   ├── wilson-juice.jpg   # Wilson 100% Naturel Maracuja promotional visual[cite: 1, 4]
+    │   └── wilson-menu.jpg    # Official Wilson Palace Menu poster
+    └── videos/
+        ├── restaurant-tour.mp4  # Video 1: Main Bar & Restaurant[cite: 4]
+        ├── football-zone.mp4    # Video 2: Live Football Screening Zone[cite: 4]
+        └── drinks-lounge.mp4    # Video 3: Drinks & Cocktail Lounge[cite: 4]
