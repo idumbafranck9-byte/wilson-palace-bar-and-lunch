@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wilson Palace Bar & Restaurant — Premium grilled cuisine, signature cocktails, natural Wilson 100% Maracuja juice, live football screening lounge, and branded accessories." />
+  <title>Contact & Reservations — Wilson Palace | Wilson Palace Bar &amp; Restaurant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav-container">
+      <a href="Index.html" class="brand-logo" aria-label="Wilson Palace Home">
+        <span class="crown-icon" aria-hidden="true">♛</span>
+        <div class="brand-text">
+          <span class="brand-name">WILSON PALACE</span>
+          <span class="brand-tagline">BAR • RESTAURANT • LOUNGE</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="Index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="accessories.html">Accessories</a></li>
+          <li><a href="contact me.html" class="nav-cta active">Contact &amp; Book</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-banner">
+    <div class="container">
+      <span class="section-kicker">RESERVATIONS • ORDERS • INQUIRIES</span>
+      <h1>Contact <span class="text-gold">Wilson Palace</span></h1>
+      <p>Book a VIP table for tonight's football match, place a food takeaway order, or request official Wilson accessories.</p>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container contact-layout">
+      <div class="contact-info-panel">
+        <h2>Direct Palace Lines</h2>
+        <p>Our hospitality team is available daily for instant table reservations, food orders, and private event bookings.</p>
+
+        <div class="info-card">
+          <span class="info-icon">📞</span>
+          <div>
+            <h4>Phone &amp; WhatsApp Orders</h4>
+            <p><a href="tel:+243977183966">(+243) 977 183 966</a></p>
+            <p><a href="tel:+243890567465">(+243) 890 567 465</a></p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <span class="info-icon">📍</span>
+          <div>
+            <h4>Location</h4>
+            <p>Wilson Palace Bar &amp; Restaurant<br />Main Boulevard, VIP Lounge District</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <span class="info-icon">⏰</span>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>Mon – Thu: 11:00 AM – 12:00 AM<br />Fri – Sat: 11:00 AM – 03:00 AM<br />Sun: 12:00 PM – 01:00 AM</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-card">
+        <h2>Book a Table or Place an Order</h2>
+        <form id="palaceContactForm" class="palace-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" placeholder="e.g. Jean-Paul Kabongo" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="e.g. +243 977 000 000" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="serviceType">Request Type *</label>
+              <select id="serviceType" name="serviceType" required>
+                <option value="Table Reservation (Restaurant)">Table Reservation (Restaurant)</option>
+                <option value="Live Football VIP Lounge Booking">Live Football VIP Lounge Booking</option>
+                <option value="Food & Drinks Takeaway Order">Food &amp; Drinks Takeaway Order</option>
+                <option value="Wilson Accessories Purchase">Wilson Accessories Purchase</option>
+                <option value="Private Party / Event Hosting">Private Party / Event Hosting</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="guests">Number of Guests / Quantity</label>
+              <input type="number" id="guests" name="guests" min="1" max="100" value="2" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Order Details, Preferred Time, or Accessory Item *</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us your preferred date/time, dishes (e.g., 1/4 Poulet Mayo, Brochettes, Wilson Maracuja Juice), or accessories..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">Send Request to Wilson Palace</button>
+          <div id="formFeedback" class="form-feedback" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const itemParam = params.get('item');
+    if (itemParam) {
+      const serviceSelect = document.getElementById('serviceType');
+      const messageBox = document.getElementById('message');
+      if (serviceSelect) serviceSelect.value = 'Wilson Accessories Purchase';
+      if (messageBox) messageBox.value = `Hello Wilson Palace, I would like to order the following accessory: ${itemParam}.`;
+    }
+
+    const form = document.getElementById('palaceContactForm');
+    const feedback = document.getElementById('formFeedback');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('fullName').value;
+        const service = document.getElementById('serviceType').value;
+        feedback.innerHTML = `<strong>Thank you, ${name}!</strong> Your request for <em>${service}</em> has been prepared. For immediate confirmation, you may also call <strong>(+243) 977 183 966</strong>.`;
+        feedback.classList.add('visible');
+        form.reset();
+      });
+    }
+  </script>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="Index.html" class="brand-logo">
+          <span class="crown-icon" aria-hidden="true">♛</span>
+          <div class="brand-text">
+            <span class="brand-name">WILSON PALACE</span>
+            <span class="brand-tagline">BAR • RESTAURANT • LOUNGE</span>
+          </div>
+        </a>
+        <p class="footer-desc">
+          The premier destination for authentic charcoal-grilled delicacies, ice-cold beverages, 100% natural Wilson Maracuja juice, live HD football screenings, and exclusive lifestyle merchandise.
+        </p>
+        <div class="footer-badges">
+          <span class="badge-pill">100% Natural Wilson Juice</span>
+          <span class="badge-pill">Live Match Zone</span>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="Index.html">Home &amp; Menu</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="experience.html">Bar, Football &amp; Drinks</a></li>
+          <li><a href="gallery.html">Photo &amp; Video Gallery</a></li>
+          <li><a href="accessories.html">Wilson Accessories</a></li>
+          <li><a href="contact me.html">Reservations &amp; Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-hours">
+        <h4>Opening Hours</h4>
+        <ul>
+          <li><span>Monday – Thursday:</span> <strong>11:00 AM – 12:00 AM</strong></li>
+          <li><span>Friday – Saturday:</span> <strong>11:00 AM – 03:00 AM</strong></li>
+          <li><span>Sunday (Match Day):</span> <strong>12:00 PM – 01:00 AM</strong></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Direct Hotline &amp; Orders</h4>
+        <p class="hotline-number"><a href="tel:+243977183966">(+243) 977 183 966</a></p>
+        <p class="hotline-number"><a href="tel:+243890567465">(+243) 890 567 465</a></p>
+        <p class="footer-address">Wilson Palace Avenue, VIP District<br />Dine-In • Takeaway • VIP Table Booking</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Wilson Palace Bar &amp; Restaurant. All rights reserved.</p>
+        <p>Crafted for unforgettable nights, great food &amp; champions.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    if (navToggle && mainNav) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !expanded);
+        mainNav.classList.toggle('open');
+        navToggle.classList.toggle('open');
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.site-header');
+      if (header) {
+        header.classList.toggle('scrolled', window.scrollY > 30);
+      }
+    });
+  </script>
+</body>
+</html>
